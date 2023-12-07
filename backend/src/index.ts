@@ -16,10 +16,11 @@ mongoose.set("strictQuery", true);
 
 const app = express();
 
+//'https://typescript-ecommerce-frontend.vercel.app'
 app.use(
   cors({
     credentials: true,
-    origin: ['https://typescript-ecommerce-frontend.vercel.app'],
+    origin: ["https://typescript-ecommerce-frontend.vercel.app/"],
   })
 )
 
