@@ -189,7 +189,7 @@ function App() {
             <LoadingBox />
           ) : error ? (
             <MessageBox variant="danger">
-              {getError(error as ApiError)}
+              {getError(error as unknown as ApiError)}
             </MessageBox>
           ) : (
             categories!.map((category) => (

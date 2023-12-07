@@ -12,8 +12,6 @@ import {
   Row,
 } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { Store } from "../Store";
 import {
   useGetOrderDetailsQuery,
   useGetPaypalClientIdQuery,
@@ -26,23 +24,20 @@ import {
   SCRIPT_LOADING_STATE,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
+import { useEffect } from "react";
 
 const OrderPage = () => {
-  const {
-    state: { userInfo },
-  } = useContext(Store);
 
   const params = useParams();
   const { id: orderId } = params;
 
   const {
     data: order,
-    isLoading,
     error,
     refetch,
   } = useGetOrderDetailsQuery(orderId!);
 
-  const { mutateAsync: payOrder, isLoading: loadingPay } =
+  const { mutateAsync: payOrder, isPending: loadingPay } =
     usePayOrderMutation();
 
   const testPayHandler = async () => {
@@ -61,7 +56,7 @@ const OrderPage = () => {
         paypalDispatch({
           type: "resetOptions",
           value: {
-            "client-id": paypalConfig!.clientId,
+            "clientId": paypalConfig!.clientId,
             currency: "USD",
           },
         });
@@ -76,7 +71,7 @@ const OrderPage = () => {
 
   const paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
     style: { layout: "vertical" },
-    createOrder(data, actions) {
+    createOrder(_data, actions) {
       return actions.order
         .create({
           purchase_units: [
@@ -91,7 +86,7 @@ const OrderPage = () => {
           return orderID;
         });
     },
-    onApprove(data, actions) {
+    onApprove(_data , actions) {
       return actions.order!.capture().then(async (details) => {
         try {
           await payOrder({ orderId: orderId!, ...details });
@@ -107,10 +102,10 @@ const OrderPage = () => {
     },
   };
 
-  return isLoading ? (
+  return isPending ? (
     <LoadingBox />
   ) : error ? (
-    <MessageBox>{getError(error as ApiError)}</MessageBox>
+    <MessageBox>{getError(error as unknown as ApiError)}</MessageBox>
   ) : !order ? (
     <MessageBox variant="danger">Order Not Found</MessageBox>
   ) : (
@@ -212,7 +207,7 @@ const OrderPage = () => {
                     <Col>${order.totalPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroupItem>
-                {!order.ispaid && (
+                {!order.isPaid && (
                   <ListGroupItem>
                     {isPending ? (
                       <LoadingBox />

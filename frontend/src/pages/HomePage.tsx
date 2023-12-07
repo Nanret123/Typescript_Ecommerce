@@ -1,5 +1,4 @@
 import { Col, Row } from "react-bootstrap";
-import { ApiError } from "../types/ApiError";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import ProductItem from "../components/ProductItem";
@@ -12,7 +11,7 @@ const HomePage = () => {
   return isLoading ? (
     <LoadingBox />
   ) : error ? (
-    <MessageBox variant="danger">{error as ApiError}</MessageBox>
+    <MessageBox variant="danger">"Sorry there was an error"</MessageBox>
   ) : (
     <Row>
       <Helmet>

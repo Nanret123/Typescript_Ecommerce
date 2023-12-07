@@ -18,7 +18,7 @@ const ProfilePage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { mutateAsync: updateProfile, isLoading } = useUpdateProfileMutation();
+  const { mutateAsync: updateProfile, isPending } = useUpdateProfileMutation();
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -81,10 +81,10 @@ const ProfilePage = () => {
           />
         </Form.Group>
         <div className="mb-3">
-          <Button disabled={isLoading} type="submit">
+          <Button disabled={isPending} type="submit">
             Update
           </Button>
-          {isLoading && <LoadingBox />}
+          {isPending && <LoadingBox />}
         </div>
       </Form>
     </div>

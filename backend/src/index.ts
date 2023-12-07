@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import path from 'path'
 import { productRouter } from "./routers/productRoutes";
 import { userRouter } from "./routers/userRoutes";
 import { orderRouter } from "./routers/orderRoutes";
@@ -31,6 +32,7 @@ app.use("/api/seed", seedRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/keys", keyRouter);
+
 
 const PORT = 3000;
 mongoose

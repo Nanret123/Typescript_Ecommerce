@@ -11,6 +11,7 @@ const OrderHistoryPage = () => {
   const navigate = useNavigate();
   const { data: orders, isLoading, error } = useGetOrderHistoryQuery();
 
+
   return (
     <div>
       <Helmet>
@@ -20,7 +21,7 @@ const OrderHistoryPage = () => {
       {isLoading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
+        <MessageBox variant="danger">{getError(error as unknown as ApiError)}</MessageBox>
       ) : (
         <table className="table">
           <thead>
@@ -47,9 +48,12 @@ const OrderHistoryPage = () => {
                 </td>
                 <td>
                   <Button
+                  onClick={() => {
+                    navigate(`/order/${order._id}`)
+                  }}
                     type="button"
                     variant="light"
-                    onClick={navigate(`/order/${order._id}`)}
+
                   >
                     Details
                   </Button>

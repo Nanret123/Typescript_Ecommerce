@@ -25,7 +25,7 @@ const SignupPage = () => {
     dispatch,
   } = useContext(Store);
 
-  const { mutateAsync: signup, isLoading } = useSignupMutation();
+  const { mutateAsync: signup, isPending } = useSignupMutation();
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -89,7 +89,7 @@ const SignupPage = () => {
           />
         </Form.Group>
         <div className="mb-3">
-          <Button disabled={isLoading} type="submit">
+          <Button disabled={isPending} type="submit">
             Sign In
           </Button>
         </div>
