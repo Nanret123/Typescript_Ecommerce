@@ -20,7 +20,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["https://typescript-ecommerce-server-zeta.vercel.app"],
+    origin: ["https://typescript-ecommerce-frontend.vercel.app"],
   })
 );
 
