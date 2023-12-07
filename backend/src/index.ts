@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import path from 'path'
+import { Request, Response, NextFunction } from "express";
 import { productRouter } from "./routers/productRoutes";
 import { userRouter } from "./routers/userRoutes";
 import { orderRouter } from "./routers/orderRoutes";
@@ -17,12 +17,9 @@ mongoose.set("strictQuery", true);
 
 const app = express();
 
-app.use(
-  cors({
-    credentials: true,
-    origin: ["https://typescript-ecommerce-frontend.vercel.app"],
-  })
-);
+app.use((req: Request, res: Response, next: NextFunction) => {
+  next();
+}, cors({ maxAge: 84600 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
