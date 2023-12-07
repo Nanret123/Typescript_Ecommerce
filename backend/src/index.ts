@@ -16,11 +16,12 @@ mongoose.set("strictQuery", true);
 
 const app = express();
 
-app.use(cors({
-  origin: "*",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH"]
-}))
+app.use(
+  cors({
+    credentials: true,
+    origin: ['https://typescript-ecommerce-frontend.vercel.app'],
+  })
+)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
