@@ -2,7 +2,7 @@ import axios from "axios";
 
 //https://typescript-ecommerce-server-zeta.vercel.app
 const apiClient = axios.create({
-  baseURL:"https://typescript-ecommerce-server-zeta.vercel.app",
+  baseURL:"https://typescript-ecommerce-server-zeta.vercel.app/",
   headers: {
     "Content-Type": "application/json",
   },
