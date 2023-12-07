@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL:
-    process.env.NODE_ENV === "development" ? "http://localhost:3000/" : "/",
+  baseURL:"https://typescript-ecommerce-server-zeta.vercel.app",
   headers: {
     "Content-Type": "application/json",
   },
