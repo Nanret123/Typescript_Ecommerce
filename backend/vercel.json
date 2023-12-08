@@ -1,16 +1,16 @@
 {
-    "version": 2,
-    "name": "node-js",
-    "builds": [
-        {
-            "src": "dist/index.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
-    ],
-    "routes": [
-        {
-      "src": "/(.*)",
+  "version": 2,
+  "name": "node-js",
+  "builds": [
+    {
+      "src": "dist/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
       "dest": "dist/index.js",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
       "headers": {
@@ -19,5 +19,9 @@
         "Access-Control-Allow-Headers": "Content-Type"
       }
     },
-    ]
+    {
+      "src": "/(.*)",
+      "dest": "dist/index.js"
+    }
+  ]
 }
