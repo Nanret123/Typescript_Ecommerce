@@ -34,6 +34,9 @@ app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/keys", keyRouter);
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(express.static(path.join(__dirname, '../../frontend/dist')))
 app.get('*', (req: Request, res: Response) =>
   res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'))
