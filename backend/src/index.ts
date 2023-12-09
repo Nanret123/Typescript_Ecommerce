@@ -11,7 +11,7 @@ import { seedRouter } from "./routers/seedRouter";
 dotenv.config();
 
 //"mongodb://localhost:27017/ts-ecommerce"
-const MONGODBURI = process.env.MONGODBURI;
+const databaseUrl = process.env.DATABASE_URL;
 mongoose.set("strictQuery", true);
 
 const app = express();
@@ -36,7 +36,7 @@ app.use("/api/keys", keyRouter);
 
 const PORT = 3000;
 mongoose
-  .connect(MONGODBURI)
+  .connect(databaseUrl)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server started at PORT ${PORT}`);
