@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const productRoutes_1 = require("./routers/productRoutes");
@@ -29,6 +30,8 @@ app.use("/api/seed", seedRouter_1.seedRouter);
 app.use("/api/users", userRoutes_1.userRouter);
 app.use("/api/orders", orderRoutes_1.orderRouter);
 app.use("/api/keys", keyRoutes_1.keyRouter);
+app.use(express_1.default.static(path_1.default.join(__dirname, '../../frontend/dist')));
+app.get('*', (req, res) => res.sendFile(path_1.default.join(__dirname, '../../frontend/dist/index.html')));
 const PORT = 3000;
 mongoose_1.default
     .connect(databaseUrl)
