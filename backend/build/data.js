@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sampleProducts = void 0;
-exports.sampleProducts = [
+exports.sampleUsers = exports.SampleProducts = void 0;
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
+exports.SampleProducts = [
     {
-        id: 1,
         name: "Nike Slim Shirt",
         slug: "nike-slim-shirt",
         image: "/images/shoes.jpg",
@@ -16,7 +19,6 @@ exports.sampleProducts = [
         numReviews: 10,
     },
     {
-        id: 2,
         name: "Adidas Fit Shirt",
         slug: "adidas-fit-shirt",
         image: "/images/shoes.jpg",
@@ -29,7 +31,6 @@ exports.sampleProducts = [
         numReviews: 10,
     },
     {
-        id: 3,
         name: "Lacoste Free Pants",
         slug: "lacoste-free-pants",
         image: "/images/shoes.jpg",
@@ -42,7 +43,6 @@ exports.sampleProducts = [
         numReviews: 17,
     },
     {
-        id: 4,
         name: "Nike Slim Pant",
         slug: "nike-slim-pants",
         image: "/images/shoes.jpg",
@@ -53,5 +53,19 @@ exports.sampleProducts = [
         description: "High Quality Product",
         rating: 4.5,
         numReviews: 14,
+    },
+];
+exports.sampleUsers = [
+    {
+        name: "Joe",
+        email: "admin@example.com",
+        password: bcryptjs_1.default.hashSync("123456"),
+        isAdmin: true,
+    },
+    {
+        name: "John",
+        email: "user@example.com",
+        password: bcryptjs_1.default.hashSync("123456"),
+        isAdmin: false,
     },
 ];
