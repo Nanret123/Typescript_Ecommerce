@@ -1,12 +1,13 @@
 import axios from "axios";
 
-//https://typescript-ecommerce-server-zeta.vercel.app
 const apiClient = axios.create({
-  baseURL:"https://typescript-ecommerce-server-zeta.vercel.app",
+  baseURL:
+    process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : '/',
   headers: {
-    "Content-Type": "application/json",
+    'Content-type': 'application/json',
   },
-});
+})
+
 
 apiClient.interceptors.request.use(
   async (config) => {
