@@ -30,9 +30,10 @@ app.use("/api/seed", seedRouter_1.seedRouter);
 app.use("/api/users", userRoutes_1.userRouter);
 app.use("/api/orders", orderRoutes_1.orderRouter);
 app.use("/api/keys", keyRoutes_1.keyRouter);
+app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../frontend/dist')));
 app.get('*', (req, res) => res.sendFile(path_1.default.join(__dirname, '../../frontend/dist/index.html')));
-const PORT = 3000;
+const PORT = parseInt((process.env.PORT || "3000"), 10);
 mongoose_1.default
     .connect(databaseUrl)
     .then(() => {

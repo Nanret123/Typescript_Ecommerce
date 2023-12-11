@@ -43,7 +43,7 @@ app.get('*', (req: Request, res: Response) =>
 )
 
 
-const PORT = 3000;
+const PORT: number = parseInt((process.env.PORT || "3000") as string, 10);
 mongoose
   .connect(databaseUrl)
   .then(() => {
