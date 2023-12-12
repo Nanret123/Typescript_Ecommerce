@@ -15,13 +15,13 @@ const keyRoutes_1 = require("./routers/keyRoutes");
 const seedRouter_1 = require("./routers/seedRouter");
 dotenv_1.default.config();
 //"mongodb://localhost:27017/ts-ecommerce"
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL || "mongodb://localhost:27017/ts-ecommerce";
 mongoose_1.default.set("strictQuery", true);
 const app = (0, express_1.default)();
 //'https://typescript-ecommerce-frontend.vercel.app'
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: ["https://typescript-ecommerce-frontend.vercel.app"],
+    origin: ["http://localhost:5173"],
 }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));

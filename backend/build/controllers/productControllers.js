@@ -20,10 +20,11 @@ exports.getAllProducts = (0, express_async_handler_1.default)((req, res) => __aw
     res.json(products);
 }));
 exports.getSingleProduct = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const id = req.params.id;
-    const product = yield productModel_1.ProductModel.findOne({ _id: id });
+    const { slug } = req.params;
+    const product = yield productModel_1.ProductModel.find({ slug });
+    console.log(product);
     if (product) {
-        res.json(product);
+        res.status(200).json(product);
     }
     else {
         res.status(404).json({ message: "Product Not Found" });

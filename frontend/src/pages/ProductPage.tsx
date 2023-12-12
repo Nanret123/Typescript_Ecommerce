@@ -21,8 +21,9 @@ import { toast } from "react-toastify";
 import { convertProductToCartItem } from "../utils";
 
 const ProductPage = () => {
-  const { id } = useParams();
-  const { data: product, isLoading, error } = useGetSingleProduct(id!);
+  const { slug } = useParams();
+  const { data: product, isLoading, error } = useGetSingleProduct(slug!);
+
 
   const {
     state: { cart },

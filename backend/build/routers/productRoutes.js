@@ -8,5 +8,5 @@ const express_1 = __importDefault(require("express"));
 const productControllers_1 = require("../controllers/productControllers");
 exports.productRouter = express_1.default.Router();
 exports.productRouter.get("/", productControllers_1.getAllProducts);
-exports.productRouter.get("singleProduct/:id", productControllers_1.getSingleProduct);
+exports.productRouter.get("/singleProduct/:slug", productControllers_1.getSingleProduct);
 exports.productRouter.get("/categories", productControllers_1.getAllCategories);

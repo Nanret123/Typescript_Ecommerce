@@ -11,14 +11,14 @@ const generateToken = (user) => {
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-    }, process.env.JWT_SECRET, { expiresIn: "30d" });
+    }, process.env.JWT_SECRET || 'somethingsecret', { expiresIn: "30d" });
 };
 exports.generateToken = generateToken;
 const isAuth = (req, res, next) => {
     const { authorization } = req.headers;
     if (authorization) {
         const token = authorization.slice(7, authorization.length);
-        const decode = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+        const decode = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET || 'somethingsecret');
         req.user = decode;
         next();
     }

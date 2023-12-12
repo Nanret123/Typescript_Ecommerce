@@ -10,6 +10,7 @@ export const productRouter = express.Router();
 
 productRouter.get("/", getAllProducts);
 
-productRouter.get("singleProduct/:id", getSingleProduct);
+productRouter.get("/singleProduct/:slug", getSingleProduct);
 
 productRouter.get("/categories", getAllCategories);
+

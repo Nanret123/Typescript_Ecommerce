@@ -12,7 +12,7 @@ import { seedRouter } from "./routers/seedRouter";
 dotenv.config();
 
 //"mongodb://localhost:27017/ts-ecommerce"
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL ||"mongodb://localhost:27017/ts-ecommerce";
 mongoose.set("strictQuery", true);
 
 const app = express();

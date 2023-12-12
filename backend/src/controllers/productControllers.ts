@@ -9,11 +9,12 @@ export const getAllProducts = asyncHandler(
   }
 );
 
-export const getSingleProduct = asyncHandler(async (req, res) => {
-  const id = req.params.id;
-  const product = await ProductModel.findOne({ _id: id });
+export const getSingleProduct = asyncHandler(async (req: Request, res: Response) => {
+  const { slug } = req.params;
+  const product = await ProductModel.find({ slug});
+  console.log(product);
   if (product) {
-    res.json(product);
+    res.status(200).json(product);
   } else {
     res.status(404).json({ message: "Product Not Found" });
   }

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { convertProductToCartItem } from "../utils";
 
 const ProductItem = ({ product }: { product: Product }) => {
-  const { _id, image, name, rating, price, numReviews, countInStock } = product;
+  const { image, name, rating, price, numReviews, countInStock, slug } = product;
 
   const { state, dispatch } = useContext(Store);
   const {
@@ -33,11 +33,11 @@ const ProductItem = ({ product }: { product: Product }) => {
 
   return (
     <Card>
-      <Link to={`/product/${_id}`}>
+      <Link to={`/product/${slug}`}>
         <img src={image} alt={name} className="card-img-top" />
       </Link>
       <Card.Body>
-        <Link to={`/product/${_id}`}>
+        <Link to={`/product/${slug}`}>
           <Card.Title>{name}</Card.Title>
         </Link>
         <Rating rating={rating} numReviews={numReviews} />
