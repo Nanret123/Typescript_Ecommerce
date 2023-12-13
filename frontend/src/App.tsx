@@ -211,7 +211,7 @@ function App() {
           <Outlet />
         </Container>
       </main>
-      <footer>
+      <footer className="footer">
         <div className="text-center">All rights reserved</div>
       </footer>
     </div>

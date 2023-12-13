@@ -32,7 +32,7 @@ const ProductItem = ({ product }: { product: Product }) => {
   };
 
   return (
-    <Card>
+    <Card className="single-item">
       <Link to={`/product/${slug}`}>
         <img src={image} alt={name} className="card-img-top" />
       </Link>

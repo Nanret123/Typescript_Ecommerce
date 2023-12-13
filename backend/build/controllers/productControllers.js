@@ -21,8 +21,7 @@ exports.getAllProducts = (0, express_async_handler_1.default)((req, res) => __aw
 }));
 exports.getSingleProduct = (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { slug } = req.params;
-    const product = yield productModel_1.ProductModel.find({ slug });
-    console.log(product);
+    const product = yield productModel_1.ProductModel.findOne({ slug });
     if (product) {
         res.status(200).json(product);
     }

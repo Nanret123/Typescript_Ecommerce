@@ -11,8 +11,7 @@ export const getAllProducts = asyncHandler(
 
 export const getSingleProduct = asyncHandler(async (req: Request, res: Response) => {
   const { slug } = req.params;
-  const product = await ProductModel.find({ slug});
-  console.log(product);
+  const product = await ProductModel.findOne({ slug })
   if (product) {
     res.status(200).json(product);
   } else {

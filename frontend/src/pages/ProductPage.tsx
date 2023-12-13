@@ -57,7 +57,7 @@ const ProductPage = () => {
   ) : (
     <div>
       <Row>
-        <Col md={6}>
+        <Col md={6} className="product-image">
           <img src={product.image} alt={product.name} className="large" />
         </Col>
         <Col md={3}>

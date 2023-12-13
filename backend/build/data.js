@@ -9,7 +9,7 @@ exports.SampleProducts = [
     {
         name: "Nike Slim Shirt",
         slug: "nike-slim-shirt",
-        image: "/images/shoes.jpg",
+        image: "/images/nike-slim-shirt.jpeg",
         category: "Shirts",
         brand: "Nike",
         price: 120,
@@ -21,7 +21,7 @@ exports.SampleProducts = [
     {
         name: "Adidas Fit Shirt",
         slug: "adidas-fit-shirt",
-        image: "/images/shoes.jpg",
+        image: "/images/adidas-fit-shirt.jpeg",
         category: "Shirts",
         brand: "Nike",
         price: 100,
@@ -33,7 +33,7 @@ exports.SampleProducts = [
     {
         name: "Lacoste Free Pants",
         slug: "lacoste-free-pants",
-        image: "/images/shoes.jpg",
+        image: "/images/lacoste-free-pants.jpg",
         category: "Pants",
         brand: "Lacoste",
         price: 220,
@@ -45,7 +45,7 @@ exports.SampleProducts = [
     {
         name: "Nike Slim Pant",
         slug: "nike-slim-pants",
-        image: "/images/shoes.jpg",
+        image: "/images/nike-slim-pants.png",
         category: "Pants",
         brand: "Lacoste",
         price: 78,
