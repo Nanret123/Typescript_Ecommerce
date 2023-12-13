@@ -19,9 +19,7 @@ Welcome to my TypeScript project. It is a fully-functional e-commerce website. I
 - Deploying your application on cloud servers like Render
 - PayPal and Stipe for online payment,
 - Render for deployment
-- Google Map for locate customer address on map
-- Mailgun to email order receipt to user
-
+- 
 ## Run Locally
 
 ### 1. Clone repo
