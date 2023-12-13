@@ -1,12 +1,10 @@
-# TypeSript MERN Ecommerce Wbsite
+# TypeSript MERN Ecommerce Website
 
-Welcome to my TypeScript course to build a fully-functional e-commerce website exactly like amazon. Open your code editor and follow me for the next hours to build an e-commerce website using MERN stack (MongoDB, ExpressJS, React and Node.JS).
-
-![amazona](/frontend/public/images/amazona.png)
+Welcome to my TypeScript project. It is a fully-functional e-commerce website. It was built using MERN stack (MongoDB, ExpressJS, React and Node.JS).
 
 ## Demo Website
 
-- 👉 Render : [https://ts-amazona-final.onrender.com](https://ts-amazona-final.onrender.com)
+- 👉 Render : [https://typescript-ecommerce.onrender.com/](https://typescript-ecommerce.onrender.com/)
 
 ## What I did
 
@@ -65,18 +63,9 @@ $ npm start
 
 ### 6. Seed Users and Products
 
-- Run this on browser: http://localhost:5000/api/seed
-- It returns admin email and password and 6 sample products
-
-### 7. Admin Login
-
-- Run http://localhost:3000/signin
-- Enter admin email and password and click signin
+- Run this on browser: http://localhost:3000/api/seed
+- It returns users with admin email and regular email and password and 4 sample products
 
 ## Support
 
-- Contact Instructor: [Basir](mailto:basir.jafarzadeh@gmail.com)
-
-## Lessons
-
-- [View All Lessons Scripts](/lessons/)
+- Contact: [Nanret](mailto:nanretgungshik@gmail.com)
