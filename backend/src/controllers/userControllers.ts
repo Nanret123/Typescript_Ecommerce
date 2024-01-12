@@ -27,6 +27,7 @@ export const UserSignUp = asyncHandler(async (req: Request, res: Response) => {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password),
   } as User);
+  console.log(user);
   res.json({
     _id: user._id,
     name: user.name,
